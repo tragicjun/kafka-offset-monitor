@@ -177,7 +177,7 @@ object OffsetGetterWeb extends UnfilteredWebApp[OWArgs] with Logging {
 
     def intent: Plan.Intent = {
       case GET(Path(Seg("group" :: Nil))) =>
-				JsonContent ~> ResponseString(write(getActiveGroups(args)))
+				JsonContent ~> ResponseString(write(getGroups(args)))
       case GET(Path(Seg("group" :: group :: Nil))) =>
         val info = getInfo(group, args)
         JsonContent ~> ResponseString(write(info)) ~> Ok
